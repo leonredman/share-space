@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+.container {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container:after,
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+[class*="col-"] {
+  float: left;
+  padding: 1em;
+  width: 100%;
+  min-height: 1px;
+  display: inline-block;
+}
+@media #{$breakpoint-small} {
+  .container {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+  @for $i from 1 through $grid-columns {
+    .col-sm-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media #{$breakpoint-medium} {
+  .container {
+    width: 95%;
+    max-width: $grid-max-width;
   }
-  to {
-    transform: rotate(360deg);
+  @for $i from 1 through $grid-columns {
+    .col-md-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
+@media #{$breakpoint-large} {
+  .container {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+  @for $i from 1 through $grid-columns {
+    .col-lg-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
+@media #{$breakpoint-xl} {
+  .container {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+  @for $i from 1 through $grid-columns {
+    .col-xl-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
   }
 }
